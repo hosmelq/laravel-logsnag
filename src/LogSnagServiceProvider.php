@@ -37,6 +37,10 @@ class LogSnagServiceProvider extends ServiceProvider implements DeferrableProvid
     public function boot(): void
     {
         if ($this->app->runningInConsole()) {
+            $this->commands([
+                Console\InstallCommand::class,
+            ]);
+
             $this->publishes([
                 __DIR__.'/../config/logsnag.php' => config_path('logsnag.php'),
             ], 'logsnag-config');
