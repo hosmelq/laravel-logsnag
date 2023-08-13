@@ -29,7 +29,6 @@ Next, you should configure your LogSnag API token and project name in your appli
 
 ```dosini
 LOGSNAG_API_TOKEN=your-api-token
-
 LOGSNAG_PROJECT=your-project-name
 ```
 
@@ -75,4 +74,4 @@ and the list of available parameters.
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
