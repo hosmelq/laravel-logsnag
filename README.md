@@ -45,6 +45,8 @@ the project name when creating an event or insight.
 
 ### Publish Event
 
+You can use the `LogSnag` facade to publish events and insights.
+
 ```php
 use HosmelQ\LogSnag\Laravel\Facades\LogSnag;
 
@@ -55,8 +57,9 @@ LogSnag::log()->publish([
 ]);
 ```
 
-See the LogSnag [documentation](https://docs.logsnag.com/endpoints/log) for Log for more information 
-and the list of available parameters.
+This function returns a [Log](src/Responses/Log.php) instance that provides access to the response 
+from the LogSnag API. For more information and a list of available parameters, refer to the LogSnag
+[documentation](https://docs.logsnag.com/endpoints/log) for Log.
 
 ## Publish Insight
 
@@ -70,8 +73,9 @@ LogSnag::insight()->publish([
 ]);
 ```
 
-See the LogSnag [documentation](https://docs.logsnag.com/endpoints/insight) for Insight for more information
-and the list of available parameters.
+This function returns an [Insight](src/Responses/Log.php) instance that provides access to the response
+from the LogSnag API. For more information and a list of available parameters, refer to the LogSnag
+[documentation](https://docs.logsnag.com/endpoints/insight) for Insight.
 
 ## Credits
 
