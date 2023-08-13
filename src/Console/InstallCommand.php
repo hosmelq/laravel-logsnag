@@ -32,6 +32,8 @@ class InstallCommand extends Command
             }
         }
 
+        $this->info("LogSnag has been installed!");
+
         return self::SUCCESS;
     }
 }
