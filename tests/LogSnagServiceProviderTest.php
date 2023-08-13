@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use HosmelQ\LogSnag\Laravel\Exceptions\ApiTokenIsMissing;
 
 it('requires a token', function (): void {

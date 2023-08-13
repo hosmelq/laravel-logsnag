@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use HosmelQ\LogSnag\Laravel\Contracts\ClientContract;
 
 describe('logsnag', function (): void {

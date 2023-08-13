@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace HosmelQ\LogSnag\Laravel;
 
 use HosmelQ\LogSnag\Laravel\Contracts\ClientContract;
