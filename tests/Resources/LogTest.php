@@ -33,7 +33,7 @@ it('can create a log with basic information', function (): void {
         ->notify->toBeFalse()
         ->parse->toBe('text')
         ->project->toBe('test-project')
-        ->tags->toBeNull();
+        ->tags->toBe([]);
 });
 
 it('can create a log with all information', function (): void {

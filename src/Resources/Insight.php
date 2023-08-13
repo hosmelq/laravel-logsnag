@@ -14,7 +14,7 @@ class Insight
     }
 
     /**
-     * @param  array{icon: string|null, project: string, title: string, value: numeric|string}  $payload
+     * @param  array{icon?: string, project: string, title: string, value: numeric|string}  $payload
      */
     public function publish(array $payload): InsightResponse
     {
@@ -22,7 +22,7 @@ class Insight
             $payload['project'] = config('logsnag.project');
         }
 
-        /** @var array{icon: string|null, project: string, title: string, value: numeric|string} $response */
+        /** @var array{icon?: string, project: string, title: string, value: numeric|string} $response */
         $response = $this->client
             ->post('insight', $payload)
             ->json();

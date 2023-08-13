@@ -7,28 +7,28 @@ namespace HosmelQ\LogSnag\Laravel\Responses;
 use HosmelQ\LogSnag\Laravel\Contracts\ResponseContract;
 
 /**
- * @implements ResponseContract<array{channel: string, description: string|null, event: string, icon: string|null, notify: bool, parse: 'markdown'|'text'|null, project: string, tags: array<string, bool|numeric|string>|null}>
+ * @implements ResponseContract<array{channel: string, description: string|null, event: string, icon: string|null, notify: bool, parse: 'markdown'|'text'|null, project: string, tags?: array<string, bool|numeric|string>}>
  */
 class Log implements ResponseContract
 {
     /**
-     * @param  array<string, bool|numeric|string>|null  $tags
-     * @param  'markdown'|'text'|null  $parse
+     * @param  array<string, bool|numeric|string>  $tags
+     * @param  'markdown'|'text'  $parse
      */
     public function __construct(
         public string $channel,
         public string $event,
         public string $project,
-        public ?array $tags = null,
+        public ?string $description,
+        public ?string $icon,
         public bool $notify = false,
-        public ?string $description = null,
-        public ?string $icon = null,
-        public ?string $parse = null
+        public string $parse = 'text',
+        public array $tags = [],
     ) {
     }
 
     /**
-     * @param  array{channel: string, description: string|null, event: string, icon: string|null, notify: bool, parse: 'markdown'|'text'|null, project: string, tags: array<string, bool|numeric|string>|null}  $attributes
+     * @param  array{channel: string, description?: string, event: string, icon?: string, notify?: bool, parse?: 'markdown'|'text', project: string, tags?: array<string, bool|numeric|string>}  $attributes
      */
     public static function from(array $attributes): self
     {
@@ -36,11 +36,11 @@ class Log implements ResponseContract
             channel: $attributes['channel'],
             event: $attributes['event'],
             project: $attributes['project'],
-            tags: $attributes['tags'] ?? null,
-            notify: $attributes['notify'],
             description: $attributes['description'] ?? null,
             icon: $attributes['icon'] ?? null,
+            notify: $attributes['notify'] ?? false,
             parse: $attributes['parse'] ?? 'text',
+            tags: $attributes['tags'] ?? [],
         );
     }
 

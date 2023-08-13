@@ -14,7 +14,7 @@ class Log
     }
 
     /**
-     * @param  array{channel: string, description: string|null, event: string, icon: string|null, notify: bool, parse: 'markdown'|'text'|null, project: string, tags: array<string, bool|numeric|string>|null}  $payload
+     * @param  array{channel: string, description?: string, event: string, icon?: string, notify?: bool, parse?: 'markdown'|'text', project: string, tags?: array<string, bool|numeric|string>}  $payload
      */
     public function publish(array $payload): LogResponse
     {
@@ -22,7 +22,7 @@ class Log
             $payload['project'] = config('logsnag.project');
         }
 
-        /** @var array{channel: string, description: string|null, event: string, icon: string|null, notify: bool, parse: 'markdown'|'text'|null, project: string, tags: array<string, bool|numeric|string>|null} $response */
+        /** @var array{channel: string, description?: string, event: string, icon?: string, notify?: bool, parse?: 'markdown'|'text', project: string, tags?: array<string, bool|numeric|string>} $response */
         $response = $this->client
             ->post('log', $payload)
             ->json();

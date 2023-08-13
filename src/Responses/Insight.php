@@ -15,12 +15,12 @@ class Insight implements ResponseContract
         public string $project,
         public string $title,
         public float|int|string $value,
-        public ?string $icon = null,
+        public ?string $icon,
     ) {
     }
 
     /**
-     * @param  array{icon: string|null, project: string, title: string, value: numeric|string}  $attributes
+     * @param  array{icon?: string, project: string, title: string, value: numeric|string}  $attributes
      */
     public static function from(array $attributes): self
     {
@@ -32,6 +32,9 @@ class Insight implements ResponseContract
         );
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function toArray(): array
     {
         return [
