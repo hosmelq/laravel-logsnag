@@ -77,6 +77,16 @@ This function returns an [Insight](src/Responses/Log.php) instance that provides
 from the LogSnag API. For more information and a list of available parameters, refer to the LogSnag
 [documentation](https://docs.logsnag.com/endpoints/insight) for Insight.
 
+Apart from the facade, you can utilize the `logsnag` helper function.
+
+```php
+logsnag()->log()->publish([
+    'channel' => 'waitlist',
+    'event' => 'User Joined Waitlist',
+    'icon' => '🎉',
+]);
+```
+
 ## Credits
 
 - [Hosmel Quintana](https://github.com/hosmelq)
