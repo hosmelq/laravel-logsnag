@@ -34,6 +34,7 @@
         "thecodingmachine/phpstan-safe-rule": "^1.2"
     },
     "minimum-stability": "stable",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "HosmelQ\\LogSnag\\Laravel\\": "src/"
@@ -50,7 +51,8 @@
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true
-        }
+        },
+        "sort-packages": true
     },
     "extra": {
         "laravel": {
