@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace HosmelQ\LogSnag\Laravel\Console;
 
 use Illuminate\Console\Command;
+use function Safe\exec;
 
 class InstallCommand extends Command
 {
@@ -32,7 +33,7 @@ class InstallCommand extends Command
             }
         }
 
-        $this->info("LogSnag has been installed!");
+        $this->info('LogSnag has been installed!');
 
         return self::SUCCESS;
     }
