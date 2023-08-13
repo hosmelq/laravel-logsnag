@@ -1,0 +1,70 @@
+{
+    "name": "hosmelq/laravel-logsnag",
+    "description": "Integrate the power of LogSnag's real-time event tracking into your Laravel application.",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "hosmelq",
+        "laravel",
+        "logsnag",
+        "laravel-logsnag",
+        "log",
+        "logging"
+    ],
+    "authors": [
+        {
+            "name": "Hosmel Quintana",
+            "email": "hosmelq@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "8.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.7",
+        "laravel/framework": "^9.0.0 || ^10.0.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.10",
+        "nunomaduro/larastan": "^2.6",
+        "orchestra/testbench": "^7.0 || ^8.0",
+        "pestphp/pest": "^2.13",
+        "phpstan/phpstan": "^1.10",
+        "rector/rector": "^0.17.12",
+        "thecodingmachine/phpstan-safe-rule": "^1.2",
+        "phpstan/phpstan-deprecation-rules": "^1.1"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "HosmelQ\\LogSnag\\Laravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HosmelQ\\LogSnag\\Laravel\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "LogSnag": "HosmelQ\\LogSnag\\Facade"
+            },
+            "providers": [
+                "HosmelQ\\LogSnag\\Laravel\\LogSnagServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php vendor/bin/testbench package:discover --ansi"
+        ],
+        "analyse": "phpstan analyse --configuration=phpstan.neon.dist",
+        "rector": "rector",
+        "test": "pest"
+    }
+}
