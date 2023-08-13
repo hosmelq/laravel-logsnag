@@ -25,6 +25,12 @@ You can publish the config file with:
 php artisan vendor:publish --tag="logsnag-config"
 ```
 
+Alternatively, you may utilize the install command.
+
+```sh
+php artisan logsnag:install
+```
+
 Next, you should configure your LogSnag API token and project name in your application’s `.env` file:
 
 ```dosini
