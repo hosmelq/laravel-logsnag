@@ -7,7 +7,7 @@ get realtime analytics, and receive instant insights.
 
 ## Requirements
 
-Requires PHP 8, and Laravel 9 or 10.
+Requires PHP 8.1, and Laravel 10.
 
 ## Installation
 
