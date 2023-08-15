@@ -8,14 +8,13 @@ on:
 
 jobs:
   check-static-code:
-    name: Check static code
+    name: Check static code (PHP ${{ matrix.php-version }})
 
     runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: true
       matrix:
-        php-versions: [8.0, 8.1, 8.2, 8.3]
+        php-version: [ 8.1, 8.2, 8.3 ]
 
     steps:
       - name: Checkout
@@ -48,14 +47,13 @@ jobs:
         run: vendor/bin/phpstan analyse --error-format=checkstyle | cs2pr
 
   check-code-quality:
-    name: Check code quality
+    name: Check code quality (PHP ${{ matrix.php-version }})
 
     runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: true
       matrix:
-        php-versions: [8.0, 8.1, 8.2, 8.3]
+        php-version: [ 8.1, 8.2, 8.3 ]
 
     steps:
       - name: Checkout
@@ -87,14 +85,13 @@ jobs:
         run: vendor/bin/rector --ansi --dry-run
 
   check-code-style:
-    name: Check code style
+    name: Check code style (PHP ${{ matrix.php-version }})
 
     runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: true
       matrix:
-        php-versions: [8.0, 8.1, 8.2, 8.3]
+        php-version: [ 8.1, 8.2, 8.3 ]
 
     steps:
       - name: Checkout
@@ -119,14 +116,13 @@ jobs:
         run: vendor/bin/pint --format=checkstyle --test | cs2pr
 
   tests:
-    name: PHP tests
+    name: PHP tests (PHP ${{ matrix.php-version }})
 
     runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: true
       matrix:
-        php-versions: [8.0, 8.1, 8.2, 8.3]
+        php-version: [ 8.1, 8.2, 8.3 ]
 
     steps:
       - name: Checkout
