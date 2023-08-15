@@ -18,7 +18,7 @@ class Log
      */
     public function publish(array $payload): LogResponse
     {
-        if (! in_array('project', $payload)) {
+        if (! array_key_exists('project', $payload)) {
             $payload['project'] = config('logsnag.project');
         }
 

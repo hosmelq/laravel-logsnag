@@ -18,7 +18,7 @@ class Insight
      */
     public function publish(array $payload): InsightResponse
     {
-        if (! in_array('project', $payload)) {
+        if (! array_key_exists('project', $payload)) {
             $payload['project'] = config('logsnag.project');
         }
 

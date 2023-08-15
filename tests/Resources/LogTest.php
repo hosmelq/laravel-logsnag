@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use HosmelQ\LogSnag\Laravel\Responses\Log;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Http;
 
 it('can create a log with basic information', function (): void {
@@ -34,6 +35,10 @@ it('can create a log with basic information', function (): void {
         ->parse->toBe('text')
         ->project->toBe('test-project')
         ->tags->toBe([]);
+
+    Http::assertSent(function (Request $request): bool {
+        return $request->data()['project'] == 'test-project';
+    });
 });
 
 it('can create a log with all information', function (): void {
