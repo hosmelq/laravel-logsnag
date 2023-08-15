@@ -61,3 +61,26 @@ it('can create an insight with all information', function (): void {
         ->title->toBe('Registered Users on Waitlist')
         ->value->toBe(1);
 });
+
+it('can create an insight with custom project', function (): void {
+    Http::fake([
+        '*/insight' => Http::response([
+            'project' => 'test-project-2',
+            'title' => 'Registered Users on Waitlist',
+            'value' => 1,
+        ]),
+    ]);
+
+    /** @var \HosmelQ\LogSnag\Laravel\Client $client */
+    $client = resolve('logsnag');
+
+    $client->insight()->publish([
+        'project' => 'test-project-2',
+        'title' => 'Registered Users on Waitlist',
+        'value' => 1,
+    ]);
+
+    Http::assertSent(function (Request $request): bool {
+        return $request->data()['project'] == 'test-project-2';
+    });
+});

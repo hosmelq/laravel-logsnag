@@ -88,3 +88,26 @@ it('can create a log with all information', function (): void {
             'name' => 'hosmel quintana',
         ]);
 });
+
+it('can create an insight with custom project', function (): void {
+    Http::fake([
+        '*/log' => Http::response([
+            'project' => 'test-project-2',
+            'channel' => 'waitlist',
+            'event' => 'User Joined Waitlist',
+        ]),
+    ]);
+
+    /** @var \HosmelQ\LogSnag\Laravel\Client $client */
+    $client = resolve('logsnag');
+
+    $client->log()->publish([
+        'channel' => 'waitlist',
+        'event' => 'User Joined Waitlist',
+        'project' => 'test-project-2',
+    ]);
+
+    Http::assertSent(function (Request $request): bool {
+        return $request->data()['project'] == 'test-project-2';
+    });
+});
