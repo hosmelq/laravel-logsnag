@@ -20,7 +20,7 @@ class Insight implements ResponseContract
     }
 
     /**
-     * @param  array{icon?: string, project: string, title: string, value: numeric|string}  $attributes
+     * @param array{icon?: string, project: string, title: string, value: numeric|string} $attributes
      */
     public static function from(array $attributes): self
     {

@@ -14,7 +14,7 @@ class Log
     }
 
     /**
-     * @param  array{channel: string, description?: string, event: string, icon?: string, notify?: bool, parse?: 'markdown'|'text', project?: string, tags?: array<string, bool|numeric|string>}  $payload
+     * @param array{channel: string, description?: string, event: string, icon?: string, notify?: bool, parse?: 'markdown'|'text', project?: string, tags?: array<string, bool|numeric|string>} $payload
      */
     public function publish(array $payload): LogResponse
     {

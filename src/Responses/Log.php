@@ -12,8 +12,8 @@ use HosmelQ\LogSnag\Laravel\Contracts\ResponseContract;
 class Log implements ResponseContract
 {
     /**
-     * @param  array<string, bool|numeric|string>  $tags
-     * @param  'markdown'|'text'  $parse
+     * @param array<string, bool|numeric|string> $tags
+     * @param 'markdown'|'text' $parse
      */
     public function __construct(
         public string $channel,
@@ -28,7 +28,7 @@ class Log implements ResponseContract
     }
 
     /**
-     * @param  array{channel: string, description?: string, event: string, icon?: string, notify?: bool, parse?: 'markdown'|'text', project: string, tags?: array<string, bool|numeric|string>}  $attributes
+     * @param array{channel: string, description?: string, event: string, icon?: string, notify?: bool, parse?: 'markdown'|'text', project: string, tags?: array<string, bool|numeric|string>} $attributes
      */
     public static function from(array $attributes): self
     {

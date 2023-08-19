@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace HosmelQ\LogSnag\Laravel\Console;
 
-use Illuminate\Console\Command;
 use function Safe\exec;
+
+use Illuminate\Console\Command;
 
 class InstallCommand extends Command
 {

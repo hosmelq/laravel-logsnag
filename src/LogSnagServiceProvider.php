@@ -15,7 +15,8 @@ class LogSnagServiceProvider extends ServiceProvider implements DeferrableProvid
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/logsnag.php', 'logsnag'
+            __DIR__.'/../config/logsnag.php',
+            'logsnag'
         );
 
         $this->app->singleton(ClientContract::class, function ($app): Client {
