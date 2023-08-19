@@ -9,7 +9,7 @@ use Illuminate\Http\Client\PendingRequest;
 
 class Insight
 {
-    public function __construct(private PendingRequest $client)
+    public function __construct(private readonly PendingRequest $client)
     {
     }
 
