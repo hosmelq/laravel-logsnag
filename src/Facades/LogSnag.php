@@ -8,6 +8,7 @@ use HosmelQ\LogSnag\Laravel\Contracts\ClientContract;
 use Illuminate\Support\Facades\Facade;
 
 /**
+ * @method static \HosmelQ\LogSnag\Laravel\Resources\Identify identify()
  * @method static \HosmelQ\LogSnag\Laravel\Resources\Insight insight()
  * @method static \HosmelQ\LogSnag\Laravel\Resources\Log log()
  */
