@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/hosmelq/laravel-logsnag/compare/v0.3.0...HEAD)
 
-## [v0.3.0](https://github.com/hosmelq/laravel-logsnag/compare/v0.2.0...v0.3.0) - 2023-09-12
+## [0.3.1] - 2023-09-12
 
-## [0.3.0]
+### Fixed
+
+- Add missing `user_id` to the `log`.
+
+## [v0.3.0](https://github.com/hosmelq/laravel-logsnag/compare/v0.2.0...v0.3.0) - 2023-09-12
 
 ### Added
 
