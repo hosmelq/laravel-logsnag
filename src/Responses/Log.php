@@ -7,7 +7,7 @@ namespace HosmelQ\LogSnag\Laravel\Responses;
 use HosmelQ\LogSnag\Laravel\Contracts\ResponseContract;
 
 /**
- * @implements ResponseContract<array{channel: string, description: string|null, event: string, icon: string|null, notify: bool, parse: 'markdown'|'text'|null, project: string, tags?: array<string, bool|numeric|string>}>
+ * @implements ResponseContract<array{channel: string, description: string|null, event: string, icon: string|null, notify: bool, parse: 'markdown'|'text'|null, project: string, tags?: array<string, bool|numeric|string>, user_id: string|null}>
  */
 class Log implements ResponseContract
 {
@@ -21,6 +21,7 @@ class Log implements ResponseContract
         public string $project,
         public ?string $description,
         public ?string $icon,
+        public ?string $userId,
         public bool $notify = false,
         public string $parse = 'text',
         public array $tags = [],
@@ -28,7 +29,7 @@ class Log implements ResponseContract
     }
 
     /**
-     * @param array{channel: string, description?: string, event: string, icon?: string, notify?: bool, parse?: 'markdown'|'text', project: string, tags?: array<string, bool|numeric|string>} $attributes
+     * @param array{channel: string, description?: string, event: string, icon?: string, notify?: bool, parse?: 'markdown'|'text', project: string, tags?: array<string, bool|numeric|string>, user_id?: string} $attributes
      */
     public static function from(array $attributes): self
     {
@@ -38,6 +39,7 @@ class Log implements ResponseContract
             project: $attributes['project'],
             description: $attributes['description'] ?? null,
             icon: $attributes['icon'] ?? null,
+            userId: $attributes['user_id'] ?? null,
             notify: $attributes['notify'] ?? false,
             parse: $attributes['parse'] ?? 'text',
             tags: $attributes['tags'] ?? [],
@@ -55,6 +57,7 @@ class Log implements ResponseContract
             'parse' => $this->parse,
             'project' => $this->project,
             'tags' => $this->tags,
+            'user_id' => $this->userId,
         ];
     }
 }

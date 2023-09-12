@@ -55,6 +55,7 @@ it('can create a log with all information', function (): void {
                 'email' => 'hosmelq@gmail.com',
                 'name' => 'hosmel quintana',
             ],
+            'user_id' => '123',
         ]),
     ]);
 
@@ -72,6 +73,7 @@ it('can create a log with all information', function (): void {
             'email' => 'hosmelq@gmail.com',
             'name' => 'Hosmel Quintana',
         ],
+        'user_id' => '123',
     ]);
 
     expect($log)
@@ -86,10 +88,11 @@ it('can create a log with all information', function (): void {
         ->tags->toBe([
             'email' => 'hosmelq@gmail.com',
             'name' => 'hosmel quintana',
-        ]);
+        ])
+        ->userId->toBe('123');
 });
 
-it('can create an insight with custom project', function (): void {
+it('can create a log with custom project', function (): void {
     Http::fake([
         '*/log' => Http::response([
             'project' => 'test-project-2',
