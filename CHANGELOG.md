@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/hosmelq/laravel-logsnag/compare/v0.2.0...HEAD)
 
+## [0.3.0]
+
+### Added
+
+- Support [Identify](https://docs.logsnag.com/endpoints/identify)
+
 ## [v0.2.0](https://github.com/hosmelq/laravel-logsnag/compare/v0.1.5...v0.2.0) - 2023-08-14
 
 ### Removed
